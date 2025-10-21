@@ -4,132 +4,271 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Volt Potiguar – Energia Solar por Assinatura</title>
-  <meta name="description" content="Economize até 20% na sua conta de luz com energia solar por assinatura. Sem obras, sem investimento, sem complicação." />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" />
+  <meta name="description" content="Economize até 20% na sua conta de luz com energia solar por assinatura. Sem obras, sem investimento e sem complicação." />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-dyZoa51aiAzwMFN0bRXkMzY1jGvKHTy/DT6ThRBYktwQcb1pVAp+1CFgtexTly53PB2GLO1L0ujvV54M2gf0uQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
+    :root {
+      --gradient-bg: linear-gradient(135deg, #8E2DE2 0%, #C5427E 50%, #FFBD2F 100%);
+      --color-green: #8BC34A;
+      --color-orange: #FF8C42;
+      --color-dark: #2C3131;
+      --color-light: #F7F7F7;
+    }
+
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f8f9fa;
-      color: #222;
+      color: var(--color-dark);
+      background-color: var(--color-light);
+      line-height: 1.6;
     }
-    header {
-      background-color: #013a63;
-      color: white;
-      padding: 40px 20px;
+
+    /* Hero section */
+    header.hero {
+      background-image: var(--gradient-bg);
+      color: #FFFFFF;
+      padding: 80px 20px;
       text-align: center;
     }
-    header h1 {
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
       font-size: 2rem;
-      margin-bottom: 10px;
+      font-weight: 700;
     }
-    header p {
-      font-size: 1.2rem;
+
+    .logo-title .icon {
+      font-size: 3rem;
+      color: var(--color-green);
     }
-    .cta-button {
-      margin-top: 20px;
-      background-color: #00c853;
-      color: white;
-      border: none;
-      padding: 15px 25px;
-      font-size: 1rem;
-      border-radius: 6px;
-      cursor: pointer;
+
+    .logo-title .volt {
+      color: var(--color-green);
+    }
+
+    header.hero h1 {
+      font-size: 2.5rem;
+      margin: 30px 0 10px;
+      line-height: 1.2;
+    }
+
+    header.hero h1 .highlight {
+      color: var(--color-green);
+      font-weight: 900;
+    }
+
+    header.hero p {
+      font-size: 1.25rem;
+      margin-bottom: 40px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .cta-buttons a {
       text-decoration: none;
+      background-color: var(--color-orange);
+      color: #FFFFFF;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
     }
+
+    .cta-buttons a:hover {
+      background-color: #E67630;
+    }
+
+    /* General section styling */
     section {
-      padding: 40px 20px;
-      max-width: 800px;
+      padding: 60px 20px;
+      max-width: 1000px;
       margin: 0 auto;
     }
-    h2 {
-      color: #013a63;
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--color-dark);
+      font-size: 2rem;
+    }
+
+    /* Steps section */
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+    }
+
+    .step {
+      background: #FFFFFF;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      flex: 1 1 280px;
+      padding: 20px;
+    }
+
+    .step h3 {
+      color: var(--color-green);
+      font-size: 1.25rem;
       margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    .form-group {
-      margin-bottom: 15px;
+
+    .step h3 i {
+      font-size: 1.2rem;
+      color: var(--color-green);
     }
-    input, select {
+
+    .step p {
+      font-size: 0.95rem;
+      color: var(--color-dark);
+    }
+
+    /* Calculator section */
+    #calculadora input {
       width: 100%;
       padding: 12px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
+      border: 1px solid #CCCCCC;
+      border-radius: 8px;
+      font-size: 1rem;
     }
-    button[type="submit"] {
-      background-color: #013a63;
-      color: white;
+
+    #calculadora p#resultado {
+      margin-top: 10px;
+      font-weight: 600;
+      text-align: center;
+      color: var(--color-green);
+    }
+
+    /* Form styles */
+    form#lead-form {
+      display: grid;
+      gap: 15px;
+    }
+
+    form#lead-form .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    form#lead-form label {
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    form#lead-form input,
+    form#lead-form select {
+      padding: 10px 12px;
+      border: 1px solid #CCCCCC;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    form#lead-form button[type="submit"] {
+      background-color: var(--color-dark);
+      color: #FFFFFF;
       padding: 15px;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
-      width: 100%;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
     }
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-      border-radius: 50%;
-      padding: 12px;
-      z-index: 1000;
+
+    form#lead-form button[type="submit"]:hover {
+      background-color: #011E3C;
     }
-    .whatsapp-float img {
-      width: 40px;
-      height: 40px;
+
+    /* Footer */
+    footer {
+      background-color: #013a63;
+      color: #FFFFFF;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      header.hero h1 {
+        font-size: 1.8rem;
+      }
+      header.hero p {
+        font-size: 1rem;
+      }
+      .logo-title {
+        font-size: 1.6rem;
+      }
     }
   </style>
 </head>
 <body>
-
   <!-- Hero Section -->
-  <header>
-    <h1>Economize Até 20% na Sua Conta de Luz</h1>
-    <p>Com energia solar por assinatura – sem obras, sem investimento, sem complicação.</p>
-    <a href="#formulario" class="cta-button">Simule Sua Economia Agora</a>
+  <header class="hero">
+    <div class="logo-title">
+      <i class="fas fa-sun icon"></i>
+      <div class="text"><span class="volt">Volt</span>Potiguar</div>
+    </div>
+    <h1>Economize <span class="highlight">até 20%</span> na conta de luz</h1>
+    <p>Sem investimento, sem obras, sem sair de casa — energia limpa e acessível para empresas, condomínios, igrejas e residências.</p>
+    <div class="cta-buttons">
+      <a href="#formulario">Simule agora</a>
+      <a href="https://wa.me/55SEUNUMEROAQUI" target="_blank" rel="noopener noreferrer">Fale no WhatsApp</a>
+    </div>
   </header>
 
-  <!-- Como Funciona -->
-  <section>
-    <h2>Como Funciona a Energia Solar por Assinatura?</h2>
-    <p><strong>1.</strong> Você se associa à Volt Potiguar e começa a consumir energia limpa, gerada por nossas usinas solares parceiras.</p>
-    <p><strong>2.</strong> Essa energia é injetada na rede da concessionária local e automaticamente descontada da sua fatura original.</p>
-    <p><strong>3.</strong> Você passa a receber <strong>apenas a fatura da Volt Potiguar</strong>, já com o valor reduzido — <strong>sem se preocupar com distribuidoras ou burocracia</strong>.</p>
-    <ul>
-      <li>🔧 Toda a gestão com a concessionária é feita por nós</li>
-      <li>💸 Economia real de até 20% ao mês</li>
-      <li>🚫 Sem investimento, obras ou instalação</li>
-      <li>🔒 Sem contrato de fidelidade ou taxas escondidas</li>
-    </ul>
+  <!-- How it works Section -->
+  <section id="como-funciona">
+    <h2>Como Funciona</h2>
+    <div class="steps">
+      <div class="step">
+        <h3><i class="fas fa-user-plus"></i> Associe‑se</h3>
+        <p>Associe‑se à Volt Potiguar e passe a consumir energia limpa, gerada por nossas usinas solares parceiras.</p>
+      </div>
+      <div class="step">
+        <h3><i class="fas fa-bolt"></i> Energia para a rede</h3>
+        <p>A energia produzida é injetada na rede da concessionária local e automaticamente abatida da sua fatura original.</p>
+      </div>
+      <div class="step">
+        <h3><i class="fas fa-file-invoice-dollar"></i> Pague menos</h3>
+        <p>Você passa a receber apenas a fatura da Volt Potiguar, com valor reduzido — toda a burocracia com a distribuidora fica por nossa conta.</p>
+      </div>
+    </div>
   </section>
 
-  <!-- Calculadora (Placeholder) -->
-  <section>
+  <!-- Calculator Section -->
+  <section id="calculadora">
     <h2>Simule Sua Economia</h2>
-    <p>Insira sua média de consumo mensal (em R$) e veja quanto você pode economizar:</p>
-    <input type="number" placeholder="Ex: 500" id="consumo" />
-    <p id="resultado"></p>
-    <script>
-      const input = document.getElementById('consumo');
-      const output = document.getElementById('resultado');
-      input.addEventListener('input', () => {
-        const valor = parseFloat(input.value);
-        if (!isNaN(valor)) {
-          const economia = (valor * 0.2).toFixed(2);
-          output.innerText = `Você pode economizar até R$ ${economia} por mês.`;
-        } else {
-          output.innerText = '';
-        }
-      });
-    </script>
+    <p style="text-align:center; max-width: 600px; margin: 0 auto;">Insira sua média de consumo mensal (em reais) para estimar o valor aproximado da sua economia. O cálculo se baseia em 20% de desconto.</p>
+    <div style="max-width: 420px; margin: 20px auto;">
+      <input type="number" id="consumo" placeholder="Consumo mensal (R$)" />
+      <p id="resultado"></p>
+    </div>
   </section>
 
-  <!-- Formulário -->
+  <!-- Form Section -->
   <section id="formulario">
     <h2>Solicite Sua Simulação Personalizada</h2>
-    <form name="contato" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="contato" />
+    <form id="lead-form">
       <div class="form-group">
         <label>Nome</label>
         <input type="text" name="nome" required />
@@ -159,14 +298,58 @@
         <label>Consumo médio mensal (R$)</label>
         <input type="number" name="consumo" />
       </div>
-      <button type="submit">Enviar e Simular Agora</button>
+      <button type="submit">Enviar e Simular</button>
     </form>
   </section>
 
-  <!-- Botão Flutuante do WhatsApp -->
-  <a href="https://wa.me/55SEUNUMEROAQUI" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="Fale conosco no WhatsApp">
-  </a>
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Volt Potiguar. Todos os direitos reservados.
+  </footer>
 
+  <script>
+    // Calculadora de economia
+    const consumoInput = document.getElementById('consumo');
+    const resultado = document.getElementById('resultado');
+    consumoInput.addEventListener('input', () => {
+      const valor = parseFloat(consumoInput.value);
+      if (!isNaN(valor)) {
+        const economia = (valor * 0.2).toFixed(2);
+        resultado.textContent = `Você pode economizar até R$ ${economia} por mês.`;
+      } else {
+        resultado.textContent = '';
+      }
+    });
+
+    // Integração com Google Sheets via Apps Script
+    const form = document.getElementById('lead-form');
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const data = {
+        nome: form.nome.value,
+        email: form.email.value,
+        telefone: form.telefone.value,
+        tipo: form.tipo.value,
+        localizacao: form.localizacao.value,
+        consumo: form.consumo.value
+      };
+      const url = 'SUA_URL_DO_APPS_SCRIPT'; // Substitua pela URL gerada no Apps Script
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers: { 'Content-Type': 'application/json' }
+        });
+        if (response.ok) {
+          alert('Dados enviados com sucesso!');
+          form.reset();
+        } else {
+          alert('Erro ao enviar. Tente novamente.');
+        }
+      } catch (error) {
+        alert('Erro ao enviar. Verifique sua conexão e tente novamente.');
+      }
+    });
+  </script>
 </body>
 </html>
